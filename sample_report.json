@@ -1,0 +1,60 @@
+{
+  "scan_timestamp": "2025-09-15T10:32:00Z",
+  "total_findings": 6,
+  "summary": {
+    "HIGH": 3,
+    "MEDIUM": 2,
+    "LOW": 1,
+    "ERROR": 0
+  },
+  "findings": [
+    {
+      "check": "MFA_NOT_ENABLED",
+      "severity": "HIGH",
+      "resource_type": "IAM User",
+      "resource": "dev-user-01",
+      "message": "User 'dev-user-01' has AWS Console access but no MFA device is configured. This is a critical risk.",
+      "recommendation": "Enable MFA for this user immediately via IAM > Users > Security credentials."
+    },
+    {
+      "check": "OVERPRIVILEGED_POLICY",
+      "severity": "HIGH",
+      "resource_type": "IAM Policy",
+      "resource": "DevFullAccessPolicy",
+      "message": "Policy 'DevFullAccessPolicy' allows wildcard actions (*) on all resources (*). This grants effectively unrestricted access.",
+      "recommendation": "Replace wildcard permissions with specific actions and resources following the principle of least privilege."
+    },
+    {
+      "check": "S3_PUBLIC_ACCESS_ENABLED",
+      "severity": "HIGH",
+      "resource_type": "S3 Bucket",
+      "resource": "my-app-assets-bucket",
+      "message": "Bucket 'my-app-assets-bucket' has Block Public Access disabled for: BlockPublicAcls, IgnorePublicAcls.",
+      "recommendation": "Enable all four Block Public Access settings unless public access is explicitly required for a static website."
+    },
+    {
+      "check": "UNUSED_IAM_USER",
+      "severity": "MEDIUM",
+      "resource_type": "IAM User",
+      "resource": "temp-contractor-02",
+      "message": "User 'temp-contractor-02' has not logged in for 127 days (last login: 2025-05-11).",
+      "recommendation": "Disable this account or confirm it is still required. Stale accounts increase the attack surface."
+    },
+    {
+      "check": "ACCESS_KEY_NOT_ROTATED",
+      "severity": "MEDIUM",
+      "resource_type": "IAM Access Key",
+      "resource": "dev-user-01 / AKIAIOSFOD...",
+      "message": "Access key for user 'dev-user-01' is 112 days old (created: 2025-06-01). Keys should be rotated every 90 days.",
+      "recommendation": "Rotate this access key: create a new key, update all services using the old key, then deactivate and delete the old key."
+    },
+    {
+      "check": "ACCESS_KEY_NOT_ROTATED",
+      "severity": "LOW",
+      "resource_type": "IAM Access Key",
+      "resource": "old-service-account / AKIAI12345...",
+      "message": "Inactive access key for 'old-service-account' is 200 days old. Old inactive keys should be cleaned up.",
+      "recommendation": "Delete this inactive access key to reduce clutter and risk."
+    }
+  ]
+}

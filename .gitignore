@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+*.egg-info/
+dist/
+build/
+
+# Reports (may contain sensitive AWS info)
+*.json
+*.html
+!sample_report.json
+
+# AWS credentials — NEVER commit these
+.aws/
+credentials
+*.pem
+*.key
+
+# IDE
+.vscode/
+.idea/
+*.swp
+.DS_Store
