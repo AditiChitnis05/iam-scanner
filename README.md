@@ -187,5 +187,5 @@ This tool is intended for **authorized security auditing only**. Only run it aga
 
 ## 👩‍💻 Author
 
-**Aditi Chitnis** — Cyber-Security Engineer | IAM Specialist  
-[LinkedIn](https://linkedin.com/in/aditi-chitnis) · [GitHub](https://github.com/aditi-chitnis)
+**Aditi Chitnis** — Cyber-Security Engineer |  
+[LinkedIn](https://linkedin.com/in/aditi-chitnis) · [GitHub](https://github.com/AditiChitnis05)
